@@ -1,9 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
+import { FormsModule } from '@angular/forms'
+import { HttpModule } from '@angular/http'
 
-import { AppComponent } from './app.component';
+// modules
+import { VideoModule } from './video/video.module'
+
+// components
+import { AppComponent } from './app.component'
 
 @NgModule({
   declarations: [
@@ -12,9 +16,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    VideoModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
