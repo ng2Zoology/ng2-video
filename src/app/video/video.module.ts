@@ -11,16 +11,22 @@ import { ControlsComponent } from './components/controls/controls.component'
 // services
 import { VideoService } from './video.service';
 
+//pipes
+import { NgPipesModule } from 'ngx-pipes';
+import { VideoTimePipe } from './pipes/videotime.pipe';
+
 @NgModule({
   declarations: [
     VideoComponent,
     ProgressComponent,
-    ControlsComponent
+    ControlsComponent,
+    VideoTimePipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgPipesModule
   ],
   exports: [
     VideoComponent
