@@ -8,10 +8,12 @@ import { VideoModule } from './video/video.module'
 
 // components
 import { AppComponent } from './app.component'
+import { NavComponent } from './nav/nav.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
