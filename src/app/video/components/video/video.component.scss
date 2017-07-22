@@ -1,4 +1,67 @@
-
 video {
-    max-width: 1024px;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 2em auto 0 auto;
+}
+
+canvas {
+    display: none;
+}
+
+.wrapper {
+    width:100%;
+    max-width: 1280px; 
+    padding: 0 1em;
+    margin: 0 auto;
+    position: relative;
+}
+
+.no-filter {
+
+}
+
+.grayscale {
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.inkwell {
+    -webkit-filter: grayscale(1) brightness(0.45) contrast(1.05);
+    filter: grayscale(1) brightness(0.45) contrast(1.05);
+}
+
+.sepia {
+    -webkit-filter: sepia(1);
+    filter: sepia(1);
+}
+
+.invert {
+    -webkit-filter: invert(.8);
+    filter: invert(.8);
+}
+
+.brightness {
+  -webkit-filter: brightness(3);
+  filter: brightness(3);
+}
+
+.saturate {
+    -webkit-filter: saturate(4);
+    filter: saturate(4);
+}
+
+.contrast {
+    -webkit-filter: contrast(3);
+    filter: contrast(3);
+}
+
+.blur {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.contrast-saturation-sepia {
+    -webkit-filter: contrast(1.4) saturate(1.8) sepia(.6);
+    filter: contrast(1.4) saturate(1.8) sepia(.6);
 }

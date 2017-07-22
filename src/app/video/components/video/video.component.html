@@ -1,7 +1,16 @@
 <progress-component [percent]="percent"></progress-component>
 
-<div class="center-align">
-  <video controls></video>
-</div>
+<section class="wrapper">
+  <video [class]="filterName"></video>
+  <canvas></canvas>
+</section>
 
-<controls-component [currentTime]="currentTime"></controls-component>
+<section class="wrapper">
+  <controls-component 
+    (playPause)="onPlayPause($event)"
+    (addFilter)="onAddFilter($event)"
+    [filterName]="filterName"
+    [currentTime]="currentTime" 
+    [currentTitle]="currentTitle"
+    [duration]="duration"></controls-component>
+</section>

@@ -1,0 +1,13 @@
+$blue: blue;
+$green: green;
+$yellowgreen: yellowgreen;
+$transparent: transparent;
+
+.progress {
+    margin:0 auto;
+    background-color: $transparent;
+
+    .determinate {
+        background-color: $yellowgreen;
+    }
+}

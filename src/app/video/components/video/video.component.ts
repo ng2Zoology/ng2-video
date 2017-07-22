@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core'
 
 // interfaces
 import { VideoInterface } from '../../video.interface'
@@ -21,11 +21,14 @@ export class VideoComponent implements OnInit {
   public videoElement: HTMLVideoElement
 
   public buffered: any
-  public percent: number
+  public percent: number = 0
   public currentTime: number
   public currentTitle: string
   public currentDescription: string
   public isPlaying: boolean
+  public duration: number
+  public volume: number
+  public filterName: string
 
   readonly MEDIA_EVENTS_CANPLAY = 'canplay'
   readonly MEDIA_EVENTS_CANPLAYTHROUGH = 'canplaythrough'
@@ -42,11 +45,19 @@ export class VideoComponent implements OnInit {
   readonly MEDIA_EVENTS_VOLUMECHANGE = 'volumechange'
   readonly MEDIA_EVENTS_WAITING = 'waiting'
 
+  readonly FILTERS = ['no-filter', 'grayscale', 'inkwell', 'sepia', 'invert', 'brightness', 'saturate', 'contrast', 'blur']
+
+  @Input()
+  playPause: boolean
+
+  @Input()
+  addFilter: boolean
+
   constructor(private videoService:VideoService) { 
     
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.videoService
       .getVideo(1)
       .subscribe((response: VideoInterface) => {
@@ -59,10 +70,13 @@ export class VideoComponent implements OnInit {
     this.attachVideoElement()
     this.bindMediaEvents()
     this.setVideoSrc()
+    this.setVideoTitle()
+    this.disableControls()
+    this.enableReplay()
   }
 
   attachVideoElement(): void {
-    this.videoElement = document.getElementsByTagName('video')[0];
+    this.videoElement = document.getElementsByTagName('video')[0]
   }
 
   bindMediaEvents(): void {
@@ -76,18 +90,35 @@ export class VideoComponent implements OnInit {
     this.videoElement.addEventListener(this.MEDIA_EVENTS_PROGRESS, this.onProgress)
   }
 
-  initTilt():void {
-      VanillaTilt.init(this.videoElement);
+  initTilt(): void {
+    VanillaTilt.init(this.videoElement)
   }
 
   getVideoSrc(): string {
     return './assets/' + this.video.src
   }
 
+  setBodyStyles(): void {
+    document.getElementsByTagName('body')[0].className = 'yellow lighten-5'
+  }
+
   setVideoSrc(): void {
     this.videoElement.src = this.getVideoSrc()
     this.videoElement.pause()
+    this.videoElement.volume = 0.1
     this.isPlaying = false
+  }
+
+  setVideoTitle(): void {
+    this.currentTitle = this.video.name
+  }
+
+  disableControls(): void {
+    this.videoElement.controls = false
+  }
+
+  enableReplay(): void {
+    this.videoElement.loop = true
   }
 
   onProgress = (event:any): void => {
@@ -99,7 +130,6 @@ export class VideoComponent implements OnInit {
 
   onTimeUpdate = (event:any): void => {
     this.currentTime = this.videoElement.currentTime
-    console.log(this.currentTime);
   }
 
   onCanPlay = (event:any): void => {
@@ -111,7 +141,8 @@ export class VideoComponent implements OnInit {
   }
 
   onLoadedmetadata = (event:any): void => {
-    console.log(event)
+    this.duration = this.videoElement.duration
+    this.volume = this.videoElement.volume
   }
 
   onPlay = (event:any): void => {
@@ -126,16 +157,24 @@ export class VideoComponent implements OnInit {
     console.log(event)
   }
 
+  onPlayPause(): void {
+      this.videoElement.paused ? this.videoElement.play() : this.videoElement.pause()
+  }
+
+  onAddFilter(): void {
+      this.filterName = this.FILTERS[Math.floor(Math.random() * this.FILTERS.length)]
+  }
+
   requestFullscreen() {
       if(this.videoElement.requestFullscreen) {
-          this.videoElement.requestFullscreen();
-      // } else if (this.videoElement.mozRequestFullScreen) {
-      //      this.videoElement.mozRequestFullScreen();
+          this.videoElement.requestFullscreen()
       } else if (this.videoElement.webkitRequestFullscreen) {
-          this.videoElement.webkitRequestFullscreen();
-      // } else if (this.videoElement.msRequestFullscreen) {
-      //      this.videoElement.msRequestFullscreen();
+          this.videoElement.webkitRequestFullscreen()
       }
+  }
+
+  ngOnDestroy(): void { 
+
   }
 
 }
