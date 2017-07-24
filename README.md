@@ -9,7 +9,7 @@ Angular 2 Video Component for HTML5 video playback.
 
 ![Screenshot](/screenshots/screenshot.png?raw=true "")
 
-## Setup Instructions
+## Setup
 
 Built using angular-cli tooling, see https://cli.angular.io
 
