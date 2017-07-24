@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  public title = 'Angular 2 Video Component';
+  public title:string = 'ng2-video'
 
   constructor() { 
       
