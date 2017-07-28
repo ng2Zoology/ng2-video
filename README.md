@@ -22,7 +22,7 @@ _Start application_
 ```
 ng serve
 ```
-3. Open your first browser and go to localhost:4200
+3. In your browser go to localhost:4200
 
 ## Browser Support
 
