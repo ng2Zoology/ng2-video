@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'nav-component',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+
+  @Output()
+  onAddFilter: EventEmitter<any> = new EventEmitter<any>()
 
   public title:string = 'ng2-video'
 
@@ -15,6 +18,10 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  toggleFilter(): void {
+    this.onAddFilter.emit(true)
   }
 
 }

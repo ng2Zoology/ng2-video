@@ -1,0 +1,13 @@
+<div class="section">
+    <h5>{{ title }}</h5>
+    <blockquote>{{ subtitle }}</blockquote>
+</div>
+
+<div class="divider"></div>
+
+<div class="row margin-top-2">
+    <div *ngFor="let key of mediaEvents | keys; let first = first; let last = last" class="col s6 l4">
+        <span class="padding-1 blue lighten-5"><strong>{{ key }}</strong></span>
+        <span class="padding-1">{{ mediaEvents[key] }}</span>
+    </div>
+</div>

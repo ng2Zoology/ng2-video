@@ -9,7 +9,7 @@ import { PercentPipe } from '@angular/common';
 export class ProgressComponent implements OnInit {
 
   @Input()
-  percent: number
+  percent: number = 0
  
   constructor() { }
 

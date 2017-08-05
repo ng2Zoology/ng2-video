@@ -1,2 +1,26 @@
 <nav-component></nav-component>
-<video-component></video-component>
+
+<div class="row">
+    <div class="col s12 l6 grey lighten-5 margin-top-1">
+        <progress-component 
+            [percent]="percent"></progress-component>
+        <video-component 
+            [filterChanged]="filterChanged"
+            (onMediaEvents)="onMediaEvents($event)"
+            (onMediaProperties)="onMediaProperties($event)"
+            (onBufferedEvent)="onBufferedEvent($event)"
+            (onProgressEvent)="onProgressEvent($event)"></video-component>
+    </div>
+    <div class="col s12 l6">
+        <mediaevents-component
+            [mediaEvents]="mediaEvents"></mediaevents-component>
+    </div>
+    <div class="col s12 l6">
+        <mediaproperties-component 
+            [mediaProperties]="mediaProperties"></mediaproperties-component>
+    </div>
+</div>
+
+
+
+

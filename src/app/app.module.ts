@@ -3,23 +3,38 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
 
-// modules
-import { VideoModule } from './video/video.module'
-
 // components
 import { AppComponent } from './app.component'
-import { NavComponent } from './nav/nav.component'
+import { NavComponent } from './components/nav/nav.component'
+import { VideoComponent } from './components/video/video.component'
+import { ProgressComponent } from './components/progress/progress.component'
+import { MediaEventsComponent } from './components/mediaevents/mediaevents.component'
+import { MediaPropertiesComponent } from './components/mediaproperties/mediaproperties.component'
+
+// services
+import { VideoService } from './components/video/video.service';
+
+//pipes
+import { NgPipesModule } from 'ngx-pipes';
+import { VideoTimePipe } from './pipes/videotime.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    VideoComponent,
+    ProgressComponent,
+    MediaEventsComponent,
+    MediaPropertiesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    VideoModule
+    NgPipesModule
+  ],
+  providers: [
+    VideoService
   ],
   bootstrap: [AppComponent]
 })
