@@ -1,12 +1,11 @@
 # ng2-video
 Angular 2 Video component for HTML5 video playback. The progress bar, media events and properties are componentized. This experiment was inspired by the demo at https://www.w3.org/2010/05/video/mediaevents.html
 
+![Screenshot](/screenshots/screenshot.png?raw=true "")
+
 ## Setup
 
 This project uses angular-cli tooling, see https://cli.angular.io
-
-1. Download the source to a local folder.
-2. From your terminal go to ng2-video/ and run: 
 
 _Install project dependencies_
 ```
