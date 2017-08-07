@@ -129,7 +129,7 @@ export class VideoComponent implements OnInit, OnChanges {
       switch(property) {
         case 'src':
         case 'currentSrc':
-          this.mediaProperty[property] = '/' + this.video.src
+          this.mediaProperty[property] = this.video.src
           break
         default : 
           this.mediaProperty[property] = eval('this.videoElement.' + property)
