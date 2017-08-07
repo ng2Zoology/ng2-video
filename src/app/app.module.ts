@@ -12,11 +12,10 @@ import { MediaEventsComponent } from './components/mediaevents/mediaevents.compo
 import { MediaPropertiesComponent } from './components/mediaproperties/mediaproperties.component'
 
 // services
-import { VideoService } from './components/video/video.service';
+import { VideoService } from './components/video/video.service'
 
 //pipes
-import { NgPipesModule } from 'ngx-pipes';
-import { VideoTimePipe } from './pipes/videotime.pipe';
+import { NgPipesModule } from 'ngx-pipes'
 
 @NgModule({
   declarations: [
