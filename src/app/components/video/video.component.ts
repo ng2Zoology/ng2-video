@@ -270,7 +270,28 @@ export class VideoComponent implements OnInit, OnChanges {
   }
 
   ngOnDestroy(): void { 
-    //@todo cleanup unbind all video listeners
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_ABORT, this.onAbort)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_CANPLAY, this.onCanPlay)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_CANPLAYTHROUGH, this.onCanPlayThrough)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_DURATIONCHANGE, this.onDurationChange)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_ENDED, this.onEnded)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_ERROR, this.onError)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_LOADEDDATA, this.onLoadeddata)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_LOADEDMETADATA, this.onLoadedmetadata)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_LOADSTART, this.onLoadStart)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_PAUSE, this.onPause)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_PLAY, this.onPlay)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_PLAYING, this.onPlaying)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_ENDED, this.onEnded)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_PROGRESS, this.onProgress)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_RATECHANGE, this.onRateChange)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_SEEKED, this.onSeeked)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_SEEKING, this.onSeeking)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_STALLED, this.onStalled)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_SUSPEND, this.onSuspend)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_TIMEUPDATE, this.onTimeUpdate)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_VOLUMECHANGE, this.onVolumeChange)
+    this.videoElement.removeEventListener(this.MEDIA_EVENTS_WAITING, this.onWaiting)
   }
 
 }
