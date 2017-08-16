@@ -10,4 +10,14 @@
 .padding-1 {
     padding: 1em;
     line-height: 3.5;
+
+    &.clearfix {
+        display: block;
+        clear: both;
+    }
+
+    &.key {
+        line-height: 1.5;
+    }
 }
+

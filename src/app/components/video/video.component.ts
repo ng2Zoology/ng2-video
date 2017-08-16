@@ -131,6 +131,10 @@ export class VideoComponent implements OnInit, OnChanges {
         case 'currentSrc':
           this.mediaProperty[property] = this.video.src
           break
+        case 'buffered':
+        case 'played':
+        case 'seekable':
+        case 'textTracks':
         default : 
           this.mediaProperty[property] = eval('this.videoElement.' + property)
           break

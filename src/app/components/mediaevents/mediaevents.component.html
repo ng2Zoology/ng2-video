@@ -6,8 +6,8 @@
 <div class="divider"></div>
 
 <div class="row margin-top-2">
-    <div *ngFor="let key of mediaEvents | keys; let first = first; let last = last" class="col s6 l4">
-        <span class="padding-1 blue lighten-5"><strong>{{ key }}</strong></span>
+    <div *ngFor="let key of mediaEvents | keys; let first = first; let last = last" class="col s12 m6 l4 xl2">
+        <span class="padding-1 blue lighten-5 clearfix key"><strong>{{ key }}</strong></span>
         <span class="padding-1">{{ mediaEvents[key] }}</span>
     </div>
 </div>
