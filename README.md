@@ -11,8 +11,6 @@ Angular 2 Video component for HTML5 video playback. The progress bar, media even
 
 ## Setup
 
-This project uses angular-cli.
-
 _Install project dependencies_
 ```
 npm install
